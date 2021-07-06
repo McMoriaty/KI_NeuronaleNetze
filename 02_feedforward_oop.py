@@ -13,7 +13,7 @@ class Network:
     def __init__(self, wA, wB):
         self.wA= wA 
         self.wB= wB 
-         
+        
     def feedforward(self, k):
         h=sigmaoid(np.dot(self.wA, k)) 
         self.y=sigmaoid(np.dot(self.wB, h))
@@ -34,12 +34,11 @@ class Network:
             else:
                 self.runtotal += 1
 
-network=Network(np.array([[-0.3,-0.7,-0.9,-0.9],[-1,-0.6,-0.6,-0.6],[0.80,0.50,0.70,0.8]]), np.array([[2.6,2.1,-1.2],[-2.3,-2.3,1.1]]))
+network=Network(np.random.rand(3,4),np.random.rand(2,3))
 network.correct=0
 network.runtotal=0
 for i in range(len(data_list)):
     t = data_list[i].split(",")
-    #network.feedforward(wert_training(i))
     TargetOutput = int(t[0])
     wert_test = np.array([int(t[1])/255, int(t[2])/255, int(t[3])/255, int(t[4])/255])
     wert_test = wert_test.reshape((-1,1))
