@@ -25,7 +25,6 @@ class Network:
         for i in range(len(data_list)):
             t = data_list[i].split(",")
             TargetOutput = int(t[0])
-            #for i in data_list:
             wert_test = np.array([int(t[1])/255, int(t[2])/255, int(t[3])/255, int(t[4])/255])
             wert_test = wert_test.reshape((-1,1))
             y=self.feedforward(wert_test)
