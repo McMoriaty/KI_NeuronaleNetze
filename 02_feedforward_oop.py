@@ -16,10 +16,12 @@ class Network:
         
     def feedforward(self, k):
         h=sigmaoid(np.dot(self.wA, k)) 
-        self.y=sigmaoid(np.dot(self.wB, h))
+        y=sigmaoid(np.dot(self.wB, h))
+        return(y)
 
     def check(self):
-        if network.y[0]<network.y[1]:
+        n,o=self.feedforward(wert_test)
+        if n<o:
             b=1
             if b == TargetOutput:
                 self.correct += 1
