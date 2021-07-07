@@ -10,9 +10,9 @@ with open('C:\Schule\TalentaIt\Phyton\KI_NeuronaleNetze\data\data_dark_bright_te
     data_list = f.readlines()
 
 class Network:  
-    def __init__(self, wA, wB):
-        self.wA= wA 
-        self.wB= wB 
+    def __init__(self):
+        self.wA= np.random.rand(3,4)
+        self.wB= np.random.rand(2,3)
         
     def feedforward(self, k):
         h=sigmaoid(np.dot(self.wA, k)) 
@@ -34,7 +34,7 @@ class Network:
             else:
                 self.runtotal += 1
 
-network=Network(np.random.rand(3,4),np.random.rand(2,3))
+network=Network()
 network.correct=0
 network.runtotal=0
 for i in range(len(data_list)):
